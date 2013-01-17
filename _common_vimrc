@@ -1,0 +1,76 @@
+" ================ General Config ====================
+
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+
+set laststatus=2                "Always show status line
+
+" Present a menu instead of dumb tab-completion for filenames
+set wildmenu
+set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+
+nmap <C-N> :set invnumber<CR>
+nmap <C-i> :set list!<CR>
+nmap <C-S> :w<CR>
+
+" ==================== COLOR & FONTS  ======================
+" http://www.vim.org/scripts/script.php?script_id=121
+colorscheme darkblue
+
+" I like my whitespace to be visible, it helps with Python indentation
+highlight ExtraWhitespace ctermbg=black guibg=#8D506A
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=black guibg=#282828
+match ExtraWhitespace /^\t*\zs \+/
+
+syntax on                       "Turn on syntax highlighting
+
+" ================ Turn Off Swap Files ==============
+
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+" ==================== JSON PrettyPrint  ======================
+noremap \js :.!ppjs<ENTER>
+
+" =================== PLUGINS ========================
+" 
+" PATHOGEN: https://github.com/tpope/vim-pathogen
+" MRU: http://www.vim.org/scripts/script.php?script_id=521
+" Buffer Explorer: http://www.vim.org/scripts/script.php?script_id=42
+
+" Load pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" Map Ctrl-o to a menu of the most recently used documents. Uses MRU
+nmap <C-o> :MRU<CR>
+
+" Turn on filetype detection, filetype plugins, and indent files
+execute pathogen#infect()
+filetype plugin indent on
+
+" ==================== GVIM CONFIG  ======================
+if has("gui_running")
+  colorscheme asu1dark
+  
+  " Set the window size. Using only 80 columns forces better Python behavior.
+  set lines=60 columns=160
+endif
