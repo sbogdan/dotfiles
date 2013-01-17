@@ -46,6 +46,11 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
+" enable code folding
+" 'za' for toggle method fold
+set foldmethod=indent
+set foldlevel=99
+
 " ==================== JSON PrettyPrint  ======================
 noremap \js :.!ppjs<ENTER>
 

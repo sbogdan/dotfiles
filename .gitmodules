@@ -49,3 +49,12 @@
 [submodule "_vim/bundle/ropevim"]
 	path = _vim/bundle/ropevim
 	url = https://github.com/sontek/rope-vim.git
+[submodule "_vim/bundle/bufexplorer"]
+	path = _vim/bundle/bufexplorer
+	url = https://github.com/c9s/bufexplorer.git
+[submodule "_vim/bundle/mru"]
+	path = _vim/bundle/mru
+	url = https://github.com/vim-scripts/mru.vim
+[submodule "_vim/bundle/color_sample_pack"]
+	path = _vim/bundle/color_sample_pack
+	url = https://github.com/vim-scripts/Colour-Sampler-Pack
