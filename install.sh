@@ -7,7 +7,7 @@ if [ -e "${target}" ] && [ ! -L "${target}" ]; then
   mv $target $target.df.bak
 fi
 
-ln -sf ${source} ${target}
+echo ln -sf ${source} ${target}
 }
 
 function unlink_file {
@@ -20,23 +20,7 @@ if [ -e "${target}.df.bak" ] && [ -L "${target}" ]; then
 fi
 }
 
-if [ "$1" = "vim" ]; then
-  for i in _vim*
-  do
-    link_file $i
-  done
-elif [ "$1" = "restore" ]; then
-  for i in _*
-  do
-    unlink_file $i
-  done
-  exit
-else
-  for i in _*
-  do
-    link_file $i
-  done
-fi
-
-git submodule update --init --recursive
-git submodule foreach --recursive git pull origin master
+for i in _*
+do
+  link_file $i
+done
