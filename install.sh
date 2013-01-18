@@ -5,9 +5,9 @@ target="${HOME}/${1/_/.}"
 
 if [ -e "${target}" ] && [ ! -L "${target}" ]; then
   mv $target $target.df.bak
+  ln -sf ${source} ${target}
 fi
 
-echo ln -sf ${source} ${target}
 }
 
 function unlink_file {
@@ -24,3 +24,6 @@ for i in _*
 do
   link_file $i
 done
+
+#git submodule update --init --recursive
+#git submodule foreach --recursive git pull origin master

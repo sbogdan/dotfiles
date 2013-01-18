@@ -19,6 +19,12 @@ nmap <C-N> :set invnumber<CR>
 nmap <C-i> :set list!<CR>
 nmap <C-S> :w<CR>
 
+" Window movement
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
 " ==================== COLOR & FONTS  ======================
 " http://www.vim.org/scripts/script.php?script_id=121
 colorscheme darkblue
@@ -56,21 +62,92 @@ noremap \js :.!ppjs<ENTER>
 
 " =================== PLUGINS ========================
 " 
-" PATHOGEN: https://github.com/tpope/vim-pathogen
-" MRU: http://www.vim.org/scripts/script.php?script_id=521
+" ---------------------------------------------------------------
 " Buffer Explorer: http://www.vim.org/scripts/script.php?script_id=42
+let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
+" ---------------------------------------------------------------
 
+" ---------------------------------------------------------------
+" PEP8: https://github.com/vim-scripts/pep8.git
+let g:pep8_map='<leader>8'
+" ---------------------------------------------------------------
+
+" ---------------------------------------------------------------
+" TaskList: https://github.com/vim-scripts/TaskList.vim.git
+map T :TaskList<CR>
+" ---------------------------------------------------------------
+
+" ---------------------------------------------------------------
+" RopeVim: https://github.com/sontek/rope-vim.git
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
+" ---------------------------------------------------------------
+
+" ---------------------------------------------------------------
+" PyTest: https://github.com/alfredodeza/pytest.vim.git
+" Execute the tests
+nmap <silent><Leader>tf <Esc>:Pytest file<CR>
+nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+" cycle through test errors
+nmap <silent><Leader>tn <Esc>:Pytest next<CR>
+nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+nmap <silent><Leader>te <Esc>:Pytest error<CR> ---------------------------------------------------------------
+" ---------------------------------------------------------------
+" PY DOCUMENTATION: https://github.com/fs111/pydoc.vim.git
+"   :Pydoc os.path or use the keystrokes <Leader>pw and <Leader>pW to 
+"   search for the item under the cursor. (Vim’s default <Leader> is “\”).
+" ---------------------------------------------------------------
+
+" ---------------------------------------------------------------
+" VimPdb: http://code.google.com/p/vimpdb/
+" ---------------------------------------------------------------
+
+" ---------------------------------------------------------------
+" Tags
+" run ctags -R -f ~/.vim/tags/python.ctags /usr/lib/python2.x/
+set tags+=$HOME/.vim/tags/python.ctags
+  " back tag
+  map <silent><C-Left> <C-T>
+  " enter tag
+  map <silent><C-Right> <C-]>
+" ---------------------------------------------------------------
+
+" ---------------------------------------------------------------
+" Code completion
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+set completeopt=menuone,longest,preview
+  " code completion to control space
+  inoremap <C-Space> <C-x><C-o>
+" ---------------------------------------------------------------
+
+" ---------------------------------------------------------------
+" NerdTree: https://github.com/vim-scripts/The-NERD-tree.git 
+map <leader>n :NERDTreeToggle<CR>
+" ---------------------------------------------------------------
+
+" ---------------------------------------------------------------
+" PATHOGEN: https://github.com/tpope/vim-pathogendd
 " Load pathogen
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+" ---------------------------------------------------------------
 
+" ---------------------------------------------------------------
+" MRU: http://www.vim.org/scripts/script.php?script_id=521
 " Map Ctrl-o to a menu of the most recently used documents. Uses MRU
 nmap <C-o> :MRU<CR>
+" ---------------------------------------------------------------
 
+" ---------------------------------------------------------------
 " Turn on filetype detection, filetype plugins, and indent files
 execute pathogen#infect()
 filetype plugin indent on
+" ---------------------------------------------------------------
 
 " ==================== GVIM CONFIG  ======================
 if has("gui_running")
