@@ -67,7 +67,7 @@ noremap \js :.!ppjs<ENTER>
 " Buffer Explorer: http://www.vim.org/scripts/script.php?script_id=42
 let g:miniBufExplMapWindowNavVim = 1
 "let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1
 " ---------------------------------------------------------------
 
