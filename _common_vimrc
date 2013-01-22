@@ -25,6 +25,7 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+" Buffer movement
 " ==================== COLOR & FONTS  ======================
 " http://www.vim.org/scripts/script.php?script_id=121
 colorscheme darkblue
