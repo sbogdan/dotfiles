@@ -58,3 +58,6 @@
 [submodule "_vim/bundle/color_sample_pack"]
 	path = _vim/bundle/color_sample_pack
 	url = https://github.com/vim-scripts/Colour-Sampler-Pack
+[submodule "_vim/bundle/taglist"]
+	path = _vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
