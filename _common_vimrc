@@ -62,7 +62,20 @@ set foldlevel=99
 noremap \js :.!ppjs<ENTER>
 
 " =================== PLUGINS ========================
-" 
+" ---------------------------------------------------------------
+" PATHOGEN: https://github.com/tpope/vim-pathogendd
+" Load pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+" --------------------------------------------------------------- 
+
+" ---------------------------------------------------------------
+" Turn on filetype detection, filetype plugins, and indent files
+execute pathogen#infect()
+filetype plugin indent on
+" ---------------------------------------------------------------
+
 " ---------------------------------------------------------------
 " Buffer Explorer: http://www.vim.org/scripts/script.php?script_id=42
 let g:miniBufExplMapWindowNavVim = 1
@@ -127,27 +140,13 @@ set completeopt=menuone,longest,preview
 
 " ---------------------------------------------------------------
 " NerdTree: https://github.com/vim-scripts/The-NERD-tree.git 
-map <leader>n :NERDTreeToggle<CR>
-" ---------------------------------------------------------------
-
-" ---------------------------------------------------------------
-" PATHOGEN: https://github.com/tpope/vim-pathogendd
-" Load pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+map <leader>N :NERDTreeToggle<CR>
 " ---------------------------------------------------------------
 
 " ---------------------------------------------------------------
 " MRU: http://www.vim.org/scripts/script.php?script_id=521
 " Map Ctrl-o to a menu of the most recently used documents. Uses MRU
 nmap <C-o> :MRU<CR>
-" ---------------------------------------------------------------
-
-" ---------------------------------------------------------------
-" Turn on filetype detection, filetype plugins, and indent files
-execute pathogen#infect()
-filetype plugin indent on
 " ---------------------------------------------------------------
 
 " ==================== GVIM CONFIG  ======================
