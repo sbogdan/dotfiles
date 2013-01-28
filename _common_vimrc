@@ -92,13 +92,14 @@ map <leader>r :RopeRename<CR>
 " ---------------------------------------------------------------
 " PyTest: https://github.com/alfredodeza/pytest.vim.git
 " Execute the tests
-nmap <silent><Leader>tf <Esc>:Pytest file<CR>
-nmap <silent><Leader>tc <Esc>:Pytest class<CR>
-nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+nmap <silent><Leader>tf <Esc>:Pytest file verbose<CR>
+nmap <silent><Leader>tc <Esc>:Pytest class verbose<CR>
+nmap <silent><Leader>tm <Esc>:Pytest method verbose<CR>
 " cycle through test errors
 nmap <silent><Leader>tn <Esc>:Pytest next<CR>
 nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
-nmap <silent><Leader>te <Esc>:Pytest error<CR> ---------------------------------------------------------------
+nmap <silent><Leader>te <Esc>:Pytest error<CR>
+nmap <silent><Leader>ts <Esc>:Pytest session<CR>
 " ---------------------------------------------------------------
 " PY DOCUMENTATION: https://github.com/fs111/pydoc.vim.git
 "   :Pydoc os.path or use the keystrokes <Leader>pw and <Leader>pW to 
