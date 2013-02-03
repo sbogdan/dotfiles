@@ -13,7 +13,9 @@ setopt COMPLETE_IN_WORD
 
 # aliases
 alias v="/usr/bin/env vim"
-alias gv="/usr/bin/env gvim 1>/dev/null 2>&1 &" 
+gv() {
+  /usr/bin/env gvim 1>/dev/null 2>&1 $@ &
+}
 
 # key bindings
 bindkey "\e[1~" beginning-of-line
