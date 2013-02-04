@@ -1,23 +1,70 @@
-export LS_COLORS="di=31;41:ln=31;41:so=31;41:pi=31;41:ex=31;41:bd=31;41:cd=31;41:su=31;41:sg=31;41:tw=31;41:ow=31;41:"
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.zsh/oh-my-zsh
 
-source ~/.zshenv
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="af-magic"
 
-# completionn functions
-fpath=(~/.zsh/completion $fpath)
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
 
-# completion
-zstyle ":completion:*:descriptions" format "%B%d%b"
-autoload -U compinit
-compinit
-setopt COMPLETE_IN_WORD
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
 
-# aliases
+# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git pip python cp mvn yum)
+
+source $ZSH/oh-my-zsh.sh
+
+######################### aliases ####################################
+#Don't alias grep until after sourcing the files above, could get bad version
+#of grep that doesn't understand --color
+alias grep='nocorrect grep --color=auto'
 alias v="/usr/bin/env vim"
 gv() {
   /usr/bin/env gvim 1>/dev/null 2>&1 $@ &
 }
 
-# key bindings
+######################### key bindings ###############################
+#set zsh key binding options
+case $EDITOR in
+  vi*|gvim*)
+    bindkey -v	# VI is better than Emacs
+    ;;
+  emacs*|xemacs*)
+    bindkey -e	# Emacs is better than VI
+    ;;
+esac
+bindkey "^R" history-incremental-search-backward
+bindkey "^E" end-of-line
+bindkey "^A" beginning-of-line
+
+#AWESOME...
+#pushes current command on command stack and gives blank line, after that line
+#runs command stack is popped
+bindkey "^T" push-line-or-edit
+
+# VI editing mode is a pain to use if you have to wait for <ESC> to register.
+# This times out multi-char key combos as fast as possible. (1/100th of a
+# second.)
+KEYTIMEOUT=1
+
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[5~" beginning-of-history
@@ -49,3 +96,48 @@ bindkey "^[[4~" end-of-line
  
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
+######################### zsh options ################################
+setopt ALWAYS_TO_END	       # Push that cursor on completions.
+setopt AUTO_NAME_DIRS          # change directories  to variable names
+setopt AUTO_PUSHD              # push directories on every cd
+setopt NO_BEEP                 # self explanatory
+
+######################### history options ############################
+setopt EXTENDED_HISTORY        # store time in history
+setopt HIST_EXPIRE_DUPS_FIRST  # unique events are more usefull to me
+setopt HIST_VERIFY	       # Make those history commands nice
+setopt INC_APPEND_HISTORY      # immediatly insert history into history file
+HISTSIZE=16000                 # spots for duplicates/uniques
+SAVEHIST=15000                 # unique events guarenteed
+HISTFILE=~/.history
+setopt histignoredups          # ignore duplicates of the previous event
+
+
+######################### completion #################################
+# these are some (mostly) sane defaults, if you want your own settings, I
+# recommend using compinstall to choose them.  See 'man zshcompsys' for more
+# info about this stuff.
+
+# The following lines were added by compinstall
+
+fpath=(~/.zsh/completion $fpath)
+zstyle ':completion:*' completer _expand _complete _approximate
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion:*' use-compctl true
+zstyle ":completion:*:descriptions" format "%B%d%b"
+
+autoload zmv
+alias 'zcp=noglob zmv -W -C'
+alias 'zln=noglob zmv -W -L'
+alias 'zmv=noglob zmv -W -M'
+
+autoload -U compinit
+setopt COMPLETE_IN_WORD
+compinit
+# End of lines added by compinstall
+
+source ~/.zshenv

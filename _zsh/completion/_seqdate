@@ -1,0 +1,7 @@
+#compdef seqdate
+
+typeset -A opt_args
+local context state line
+
+_arguments "1:first date (yyyy-mm-dd-hh):"\
+  "2:second date (yyyy-mm-dd-hh):"
