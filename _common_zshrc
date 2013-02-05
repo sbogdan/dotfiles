@@ -37,10 +37,8 @@ source $ZSH/oh-my-zsh.sh
 #of grep that doesn't understand --color
 alias grep='nocorrect grep --color=auto'
 alias v="/usr/bin/env vim"
+alias gv="/usr/bin/env gvim"
 alias idle="idle 1>/dev/null 2>&1 &"
-gv() {
-  /usr/bin/env gvim 1>/dev/null 2>&1 "$@" &
-}
 ######################### key bindings ###############################
 #set zsh key binding options
 case $EDITOR in
