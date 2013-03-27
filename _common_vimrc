@@ -44,8 +44,6 @@ set expandtab
 
 " enable code folding
 " 'za' for toggle method fold
-set foldmethod=indent
-set foldlevel=99
 
 " ==================== JSON PrettyPrint  ======================
 noremap \js :.!ppjs<ENTER>
@@ -115,6 +113,7 @@ nmap <silent><Leader>ts <Esc>:Pytest session<CR>
 " run ctags -R -f ~/.vim/tags/python.ctags /usr/lib/python2.x/
 set tags+=$HOME/.vim/tags/python.ctags
   function! UpdatePythonTags()
+    lcd %:p:h
     execute ":!ctags -R *.py"
     echohl StatusLine | echo "Python tags updated" | echohl None
   endfunction
@@ -158,7 +157,7 @@ filetype plugin indent on
 " ==================== COLOR & FONTS  ======================
 " http://www.vim.org/scripts/script.php?script_id=121
 if has("gui_running")
-  colorscheme asu1dark
+  colorscheme blackboard
 
   " Set the window size. Using only 80 columns forces better Python behavior.
   set lines=60 columns=160
