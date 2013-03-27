@@ -64,3 +64,6 @@
 [submodule "_vim/bundle/vim-colors"]
 	path = _vim/bundle/vim-colors
 	url = git@github.com:sbogdan/vim-colors.git
+[submodule "_vim/bundle/py_interactive"]
+	path = _vim/bundle/py_interactive
+	url = git://github.com/vim-scripts/PyInteractive.git
