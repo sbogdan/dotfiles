@@ -137,5 +137,3 @@ autoload -U compinit
 setopt COMPLETE_IN_WORD
 compinit
 # End of lines added by compinstall
-
-source ~/.zshenv

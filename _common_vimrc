@@ -113,9 +113,11 @@ nmap <silent><Leader>ts <Esc>:Pytest session<CR>
 " run ctags -R -f ~/.vim/tags/python.ctags /usr/lib/python2.x/
 set tags+=$HOME/.vim/tags/python.ctags
   function! UpdatePythonTags()
-    lcd %:p:h
-    execute ":!ctags -R *.py"
-    echohl StatusLine | echo "Python tags updated" | echohl None
+    if has("gui_running")
+      lcd %:p:h
+      execute ":!ctags -R *.py"
+      echohl StatusLine | echo "Python tags updated" | echohl None
+    endif
   endfunction
   nnoremap <F4> :call UpdatePythonTags() <CR>
 
