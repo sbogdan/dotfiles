@@ -40,15 +40,9 @@ alias v="/usr/bin/env vim"
 alias gv="/usr/bin/env gvim"
 alias idle="idle 1>/dev/null 2>&1 &"
 ######################### key bindings ###############################
-#set zsh key binding options
-case $EDITOR in
-  vi*|gvim*)
-    bindkey -v	# VI is better than Emacs
-    ;;
-  emacs*|xemacs*)
-    bindkey -e	# Emacs is better than VI
-    ;;
-esac
+
+export EDITOR=vi
+
 bindkey "^R" history-incremental-search-backward
 bindkey "^E" end-of-line
 bindkey "^A" beginning-of-line
