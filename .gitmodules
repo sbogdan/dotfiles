@@ -64,3 +64,6 @@
 [submodule "_vim/bundle/py_interactive"]
 	path = _vim/bundle/py_interactive
 	url = git://github.com/vim-scripts/PyInteractive.git
+[submodule "_vim/bundle/syntastic"]
+	path = _vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

@@ -20,10 +20,10 @@ nmap <C-i> :set list!<CR>
 nmap <C-S> :w<CR>
 
 " Window movement
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
 
 " Buffer movement
 " ================ Turn Off Swap Files ==============
@@ -50,16 +50,10 @@ noremap \js :.!ppjs<ENTER>
 
 " =================== PLUGINS ========================
 " ---------------------------------------------------------------
-" PATHOGEN: https://github.com/tpope/vim-pathogendd
-" Load pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
+" PATHOGEN: https://github.com/tpope/vim-pathogen
+call pathogen#infect()
 call pathogen#helptags()
-" --------------------------------------------------------------- 
-
-" ---------------------------------------------------------------
-" Turn on filetype detection, filetype plugins, and indent files
-execute pathogen#infect()
+filetype off
 filetype plugin indent on
 " ---------------------------------------------------------------
 
@@ -78,7 +72,7 @@ let g:pep8_map='<leader>8'
 
 " ---------------------------------------------------------------
 " TaskList: https://github.com/vim-scripts/TaskList.vim.git
-map T :TaskList<CR>
+map <leader>T :TaskList<CR>
 " ---------------------------------------------------------------
 
 " ---------------------------------------------------------------
@@ -90,14 +84,14 @@ map <leader>r :RopeRename<CR>
 " ---------------------------------------------------------------
 " PyTest: https://github.com/alfredodeza/pytest.vim.git
 " Execute the tests
-nmap <silent><Leader>tf <Esc>:Pytest file verbose<CR>
-nmap <silent><Leader>tc <Esc>:Pytest class verbose<CR>
-nmap <silent><Leader>tm <Esc>:Pytest method verbose<CR>
+nmap <silent><leader>tf <Esc>:Pytest file verbose<CR>
+nmap <silent><leader>tc <Esc>:Pytest class verbose<CR>
+nmap <silent><leader>tm <Esc>:Pytest method verbose<CR>
 " cycle through test errors
-nmap <silent><Leader>tn <Esc>:Pytest next<CR>
-nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
-nmap <silent><Leader>te <Esc>:Pytest error<CR>
-nmap <silent><Leader>ts <Esc>:Pytest session<CR>
+nmap <silent><leader>tn <Esc>:Pytest next<CR>
+nmap <silent><leader>tp <Esc>:Pytest previous<CR>
+nmap <silent><leader>te <Esc>:Pytest error<CR>
+nmap <silent><leader>ts <Esc>:Pytest session<CR>
 " ---------------------------------------------------------------
 " PY DOCUMENTATION: https://github.com/fs111/pydoc.vim.git
 "   :Pydoc os.path or use the keystrokes <Leader>pw and <Leader>pW to 
@@ -139,21 +133,22 @@ set completeopt=menuone,longest,preview
 " ---------------------------------------------------------------
 
 " ---------------------------------------------------------------
+" Syntastic: https://github.com/scrooloose/syntastic
+" ---------------------------------------------------------------
+let g:syntastic_enable_signs = 1 " Put errors on left side
+let g:syntastic_quiet_warnings = 1 " Only errors, not warnings please
+" ---------------------------------------------------------------
+
 " NerdTree: https://github.com/vim-scripts/The-NERD-tree.git 
+map <C-N> :NERDTreeToggle<CR>
 map <leader>N :NERDTreeToggle<CR>
 " ---------------------------------------------------------------
 
 " ---------------------------------------------------------------
 " MRU: http://www.vim.org/scripts/script.php?script_id=521
 " Map Ctrl-o to a menu of the most recently used documents. Uses MRU
+nmap <leader>o :MRU<CR>
 nmap <C-o> :MRU<CR>
-" ---------------------------------------------------------------
-
-" ---------------------------------------------------------------
-" Turn on filetype detection, filetype plugins, and indent files
-execute pathogen#infect()
-filetype plugin indent on
-
 " ---------------------------------------------------------------
 
 " ==================== COLOR & FONTS  ======================
