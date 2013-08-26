@@ -37,9 +37,9 @@ set nowb
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set expandtab
 
 " enable code folding
@@ -169,3 +169,7 @@ match ExtraWhitespace /^\t*\zs \+/
 
 " Omnicomplete menu colors
 highlight Pmenu guibg=brown gui=bold
+
+" highlight > 80
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+2match OverLength /\%81v.\+/
