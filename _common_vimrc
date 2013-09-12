@@ -149,12 +149,14 @@ nmap <C-o> :MRU<CR>
 " ==================== COLOR & FONTS  ======================
 " http://www.vim.org/scripts/script.php?script_id=121
 if has("gui_running")
-  colorscheme blackboard
+  set background=dark
+  colorscheme solarized
 
   " Set the window size. Using only 80 columns forces better Python behavior.
   set lines=60 columns=160
 else
-  colorscheme darkblue
+  set background=dark
+  colorscheme solarized
 endif
 
 syntax on                       "Turn on syntax highlighting
