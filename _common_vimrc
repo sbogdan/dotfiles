@@ -150,7 +150,7 @@ nmap <C-o> :MRU<CR>
 " http://www.vim.org/scripts/script.php?script_id=121
 if has("gui_running")
   set background=dark
-  colorscheme solarized
+  colorscheme moria
 
   " Set the window size. Using only 80 columns forces better Python behavior.
   set lines=60 columns=160
