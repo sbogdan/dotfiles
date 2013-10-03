@@ -1,5 +1,5 @@
 snippet pdb
-    import pdb; pdb.set_trace()
+	import pdb; pdb.set_trace()
 
 snippet #!
 	#!/usr/bin/env python3
@@ -9,26 +9,49 @@ snippet #=
 	# ${1}
 	#==========================================================
 
-snippet doc_fun
-	"""${1:Summary sentence}.
-	
-	${2:Info paragraph}
-	
-	Args:
-		${3:}
-	
-	Returns:
-		${4:}
-	
-	Raises:
-		${5:}
-	"""
+snippet cl
+	class ${1:ClassName}(${2:object}):
+		"""${3:docstring for $1}.
+		
+		${4:info paragraph}.
 
-snippet doc_class
-	"""${1:Summary sentence}
+		Attributes:
+			${5:attribute name}: ${6:attribute information}.
+		"""
 
-	${2:Info paragraph}
+		def __init__(self, ${7:arg}):
+			${8:pass}
 
-	Attributes:
-		${3:}
-	"""
+snippet def
+	def ${1:fname}(${2}):
+		"""${3:docstring}.
+		
+		${4:info paragraph}.
+		
+		Args:
+			${5:arg name}: ${6:arg value}.
+		
+		Returns:
+			${7}.
+		
+		Raises:
+			${8:error type}: ${9:when it occurs}.
+		"""
+		${10:pass}
+
+snippet defgen
+	def ${1:fname}(${2:args}):
+		"""${3:docstring}.
+		
+		${4:info paragraph}.
+		
+		Args:
+			${5:arg name}: ${6:arg value}.
+		
+		Yields:
+			${7}.
+		
+		Raises:
+			${8:error type}: ${9:when it occurs}.
+		"""
+		${10:pass}
