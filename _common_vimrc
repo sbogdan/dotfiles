@@ -99,16 +99,16 @@ nmap <silent><leader>ts <Esc>:Pytest session<CR>
 
 " ---------------------------------------------------------------
 " Tags
-" run ctags -R -f ~/.vim/tags/python.ctags /usr/lib/python2.x/
+" run ctags -R -f ~/.vim/tags/python3.ctags /usr/lib/python3.x/
 set tags+=$HOME/.vim/tags/python.ctags
-  function! UpdatePythonTags()
+  function! UpdateTags()
     if has("gui_running")
       lcd %:p:h
-      execute ":!ctags -R *.py"
-      echohl StatusLine | echo "Python tags updated" | echohl None
+      execute ":!ctags -R *"
+      echohl StatusLine | echo "Tags updated" | echohl None
     endif
   endfunction
-  nnoremap <F4> :call UpdatePythonTags() <CR>
+  nnoremap <F4> :call UpdateTags() <CR>
 
   " toggle task list
   map t :TlistToggle <CR>
