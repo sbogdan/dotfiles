@@ -42,7 +42,7 @@ alias gv="/usr/bin/env gvim"
 alias idle="idle 1>/dev/null 2>&1 &"
 ######################### key bindings ###############################
 
-export EDITOR=vi
+export EDITOR="gvim -f"
 
 bindkey "^R" history-incremental-search-backward
 bindkey "^E" end-of-line
