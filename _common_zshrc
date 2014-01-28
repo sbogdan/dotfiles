@@ -40,6 +40,7 @@ alias grep='nocorrect grep --color=auto'
 alias v="/usr/bin/env vim"
 alias gv="/usr/bin/env gvim"
 alias idle="idle 1>/dev/null 2>&1 &"
+alias count="wc -l"
 ######################### key bindings ###############################
 
 export EDITOR="gvim -f"
