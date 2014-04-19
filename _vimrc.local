@@ -1,0 +1,6 @@
+"--==/===================\==--"
+"--==| Buffer navigation |==--"
+"--==\===================/==--"
+nmap gt :bnext<CR>
+nmap gT :bprevious<CR>
+nmap ja :buffer 
