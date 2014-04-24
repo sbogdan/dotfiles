@@ -1,6 +1,19 @@
+"--==/==============\==--"
+"--==| spf13 config |==--"
+"--==\==============/==--"
+
+
 "--==/===================\==--"
 "--==| Buffer navigation |==--"
 "--==\===================/==--"
-nmap gt :bnext<CR>
-nmap gT :bprevious<CR>
-nmap ja :buffer 
+nnoremap H :bprevious<CR>
+nnoremap L :bNext<CR>
+nnoremap J :buffer 
+nnoremap # <C-^> " quick change to prev buffer
+
+"--==/==========================================\==--"
+"--==| Edit or view files in the same directory |==--"
+"--==\==========================================/==--"
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
