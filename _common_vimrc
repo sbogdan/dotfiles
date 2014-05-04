@@ -1,7 +1,6 @@
-"--==/======================\==--"
-Bundle 'kien/ctrlp.v
-"--==| Vundle configuration |==--"
-"--==\======================/==--"
+"--==/===================\==--"
+"--==| gmarik/Vundle.vim |==--"
+"--==\===================/==--"
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -16,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
+Bundle ',ien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
