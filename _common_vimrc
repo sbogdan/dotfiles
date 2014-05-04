@@ -19,6 +19,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
+Bundle 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
