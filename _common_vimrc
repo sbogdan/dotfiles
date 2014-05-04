@@ -1,4 +1,5 @@
 "--==/======================\==--"
+Bundle 'kien/ctrlp.v
 "--==| Vundle configuration |==--"
 "--==\======================/==--"
 set nocompatible              " be iMproved, required
@@ -39,6 +40,7 @@ filetype plugin indent on
 "--==\=======================/==--"
 let mapleader = ','
 set wildmenu
+set number " displays line numbers
 
 "--==/===================\==--"
 "--==| Buffer navigation |==--"
@@ -67,3 +69,16 @@ colorscheme solarized
 "--==\===================/==--"
 set laststatus=2
 let g:airline_powerline_fonts = 1
+
+"--==/====================\==--"
+"--==| scroolose/nerdtree |==--"
+"--==\====================/==--"
+autocmd vimenter * if !argc() | NERDTree | endif " open NERDTree if no file opened
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " close vim if only NERDTree open
+map <leader>nt :NERDTreeToggle<CR>
+
+"--==/================\==--"
+"--==| kien/ctrlp.vim |==--"
+"--==\================/==--"
+map <leader>mru :CtrlPMRUFiles<CR>
+map <leader>cp :CtrlP<CR>
