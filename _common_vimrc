@@ -1,177 +1,68 @@
-" ================ General Config ====================
+"--==/======================\==--"
+"--==| Vundle configuration |==--"
+"--==\======================/==--"
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set number                      "Line numbers are good
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin('~/.vundle/')
 
-set laststatus=2                "Always show status line
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-" Present a menu instead of dumb tab-completion for filenames
-set wildmenu
-set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+" my Bundles
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
 
-nmap <C-N> :set invnumber<CR>
-nmap <C-i> :set list!<CR>
-nmap <C-S> :w<CR>
-
-" Window movement
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-h> <C-w>h
-
-" Buffer movement
-" ================ Turn Off Swap Files ==============
-
-set noswapfile
-set nobackup
-set nowb
-
-" ================ Indentation ======================
-
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
-
-" enable code folding
-" 'za' for toggle method fold
-
-" ==================== JSON PrettyPrint  ======================
-noremap \js :.!ppjs<ENTER>
-
-" =================== PLUGINS ========================
-" ---------------------------------------------------------------
-" PATHOGEN: https://github.com/tpope/vim-pathogen
-call pathogen#infect()
-call pathogen#helptags()
-filetype off
+call vundle#end()
 filetype plugin indent on
-" ---------------------------------------------------------------
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
 
-" ---------------------------------------------------------------
-" Buffer Explorer: http://www.vim.org/scripts/script.php?script_id=42
-let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
-" ---------------------------------------------------------------
+"--==/=======================\==--"
+"--==| General configuration |==--"
+"--==\=======================/==--"
+let mapleader = ','
+set wildmenu
 
-" ---------------------------------------------------------------
-" TaskList: https://github.com/vim-scripts/TaskList.vim.git
-map <leader>T :TaskList<CR>
-" ---------------------------------------------------------------
+"--==/===================\==--"
+"--==| Buffer navigation |==--"
+"--==\===================/==--"
+nnoremap gT :bprevious<CR>
+nnoremap gt :bNext<CR>
+nnoremap ja :buffer 
+nnoremap # <C-^> " quick change to prev buffer
 
-" ---------------------------------------------------------------
-" RopeVim: https://github.com/sontek/rope-vim.git
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
-" ---------------------------------------------------------------
+"--==/==========================================\==--"
+"--==| Edit or view files in the same directory |==--"
+"--==\==========================================/==--"
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
 
-" ---------------------------------------------------------------
-" PyTest: https://github.com/alfredodeza/pytest.vim.git
-" Execute the tests
-nmap <silent><leader>tf <Esc>:Pytest file verbose<CR>
-nmap <silent><leader>tc <Esc>:Pytest class verbose<CR>
-nmap <silent><leader>tm <Esc>:Pytest method verbose<CR>
-" cycle through test errors
-nmap <silent><leader>tn <Esc>:Pytest next<CR>
-nmap <silent><leader>tp <Esc>:Pytest previous<CR>
-nmap <silent><leader>te <Esc>:Pytest error<CR>
-nmap <silent><leader>ts <Esc>:Pytest session<CR>
-" ---------------------------------------------------------------
-" PY DOCUMENTATION: https://github.com/fs111/pydoc.vim.git
-"   :Pydoc os.path or use the keystrokes <Leader>pw and <Leader>pW to 
-"   search for the item under the cursor. (Vim’s default <Leader> is “\”).
-" ---------------------------------------------------------------
+"--==/==================================\==--"
+"--==| altercation/vim-colors-solarized |==--"
+"--==\==================================/==--"
+syntax enable
+set background=dark
+colorscheme solarized
 
-" ---------------------------------------------------------------
-" VimPdb: http://code.google.com/p/vimpdb/
-" ---------------------------------------------------------------
-
-" ---------------------------------------------------------------
-" Tags
-" run ctags -R -f ~/.vim/tags/python3.ctags /usr/lib/python3.x/
-set tags+=$HOME/.vim/tags/python.ctags
-  function! UpdateTags()
-    if has("gui_running")
-      lcd %:p:h
-      execute ":!ctags -R *"
-      echohl StatusLine | echo "Tags updated" | echohl None
-    endif
-  endfunction
-  nnoremap <F4> :call UpdateTags() <CR>
-
-  " toggle task list
-  map t :TlistToggle <CR>
-  " back tag
-  map <silent><C-Left> <C-T>
-  " enter tag
-  map <silent><C-Right> <C-]>
-  
-" ---------------------------------------------------------------
-
-" ---------------------------------------------------------------
-" Code completion
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-set completeopt=menuone,longest,preview
-  " code completion to control+space
-  inoremap <C-Space> <C-x><C-o>
-" ---------------------------------------------------------------
-
-" ---------------------------------------------------------------
-" Syntastic: https://github.com/scrooloose/syntastic
-" ---------------------------------------------------------------
-let g:syntastic_enable_signs = 1 " Put errors on left side
-let g:syntastic_quiet_warnings = 1 " Only errors, not warnings please
-" ---------------------------------------------------------------
-
-" NerdTree: https://github.com/vim-scripts/The-NERD-tree.git 
-map <C-N> :NERDTreeToggle<CR>
-map <leader>N :NERDTreeToggle<CR>
-" ---------------------------------------------------------------
-
-" ---------------------------------------------------------------
-" MRU: http://www.vim.org/scripts/script.php?script_id=521
-" Map Ctrl-o to a menu of the most recently used documents. Uses MRU
-nmap <leader>o :MRU<CR>
-nmap <C-o> :MRU<CR>
-" ---------------------------------------------------------------
-
-" ==================== COLOR & FONTS  ======================
-" http://www.vim.org/scripts/script.php?script_id=121
-if has("gui_running")
-  set background=dark
-  colorscheme moria
-
-  " Set the window size. Using only 80 columns forces better Python behavior.
-  set lines=60 columns=160
-else
-  set background=dark
-  colorscheme solarized
-endif
-
-syntax on                       "Turn on syntax highlighting
-
-" highlight search results
-set hlsearch
-highlight Search guibg=LightBlue
-
-" I like my whitespace to be visible, it helps with Python indentation
-highlight ExtraWhitespace ctermbg=black guibg=#444444
-match ExtraWhitespace /^\t*\zs \+/
-
-" Omnicomplete menu colors
-highlight Pmenu guibg=brown gui=bold
-
-" highlight > 80
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-2match OverLength /\%81v.\+/
+"--==/===================\==--"
+"--==| bling/vim-airline |==--"
+"--==\===================/==--"
+set laststatus=2
+let g:airline_powerline_fonts = 1

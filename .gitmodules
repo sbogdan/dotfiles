@@ -67,3 +67,9 @@
 [submodule "_vim/bundle/conque-shell"]
 	path = _vim/bundle/conque-shell
 	url = https://github.com/vim-scripts/Conque-Shell.git
+[submodule "_vim/bundle/vundle"]
+	path = _vim/bundle/vundle
+	url = https://github.com/gmarik/Vundle.vim.git
+[submodule "_vim/powerline-fonts"]
+	path = _vim/powerline-fonts
+	url = https://github.com/Lokaltog/powerline-fonts.git
