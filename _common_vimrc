@@ -20,6 +20,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'tpope/vim-fugitive'
+Bundle 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin indent on
@@ -40,6 +41,7 @@ filetype plugin indent on
 let mapleader = ','
 set wildmenu
 set number " displays line numbers
+set hlsearch
 set backspace=2
 
 "--==/===================\==--"
@@ -82,3 +84,12 @@ map <leader>nt :NERDTreeToggle<CR>
 "--==\================/==--"
 map <leader>mru :CtrlPMRUFiles<CR>
 map <leader>cp :CtrlP<CR>
+
+"--==/===================\==--"
+"--==| majutsushi/tagbar |==--"
+"--==\===================/==--"
+nmap <leader>tb :TagbarToggle<CR>
+let g:tagbar_autoshowtag = 1
+let g:tagbar_foldlevel = 3
+let g:tagbar_show_linenumbers = 1
+let g:tagbar_autofocus = 1
