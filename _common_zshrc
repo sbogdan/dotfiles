@@ -43,7 +43,7 @@ alias idle="idle 1>/dev/null 2>&1 &"
 alias count="wc -l"
 ######################### key bindings ###############################
 
-export EDITOR="gvim -f"
+export EDITOR="vim"
 
 bindkey "^R" history-incremental-search-backward
 bindkey "^E" end-of-line
