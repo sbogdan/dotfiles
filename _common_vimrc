@@ -21,6 +21,7 @@ Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'majutsushi/tagbar'
+Bundle 'motus/pig.vim'
 
 call vundle#end()
 filetype plugin indent on
