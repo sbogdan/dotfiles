@@ -41,17 +41,47 @@ filetype plugin indent on
 "--==\=======================/==--"
 let mapleader = ','
 set wildmenu
+set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 set number " displays line numbers
 set hlsearch
 set backspace=2
+set history=1000 " store lots of :cmdline history
+set gcr=a:blinkon0 " disable cursor blink
+set autoread " reload files changed outside vim
 
-"--==/===================\==--"
-"--==| Buffer navigation |==--"
-"--==\===================/==--"
+"--==/=================\==--"
+"--==| Window movement |==--"
+"--==\=================/==--"
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+
+"--==/=================\==--"
+"--==| Buffer movement |==--"
+"--==\=================/==--"
 nnoremap gT :bprevious<CR>
 nnoremap gt :bNext<CR>
 nnoremap ja :buffer 
 nnoremap # <C-^> " quick change to prev buffer
+
+"--==/============\==--"
+"--==| Swap files |==--"
+"--==\============/==--"
+set noswapfile
+set nobackup
+set nowb
+
+"--==/=============\==--"
+"--==| Indentation |==--"
+"--==\=============/==--"
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
 
 "--==/==========================================\==--"
 "--==| Edit or view files in the same directory |==--"
