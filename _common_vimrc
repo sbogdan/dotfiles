@@ -83,6 +83,13 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 
+"--==/=================\==--"
+"--==| Search mappings |==--"
+"--==\=================/==--"
+" search replace cursor-selected word
+nnoremap <leader>sr :%s/\<<C-r><C-w>\>//g<left><left>
+nnoremap <leader>sR :%s/\<<C-r><C-w>\>//gc<left><left><left>
+
 "--==/==========================================\==--"
 "--==| Edit or view files in the same directory |==--"
 "--==\==========================================/==--"
