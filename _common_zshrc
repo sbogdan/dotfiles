@@ -136,4 +136,4 @@ compinit
 # End of lines added by compinstall
 eval `dircolors ~/.dircolors`
 
-source .zsh/saca.theme.zsh
+source .zsh/saca-theme.zsh
