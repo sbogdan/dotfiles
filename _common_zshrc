@@ -106,7 +106,7 @@ HISTSIZE=16000                 # spots for duplicates/uniques
 SAVEHIST=15000                 # unique events guarenteed
 HISTFILE=~/.history
 setopt histignoredups          # ignore duplicates of the previous event
-
+setopt append_history
 
 ######################### completion #################################
 # these are some (mostly) sane defaults, if you want your own settings, I
