@@ -76,3 +76,6 @@
 [submodule "guake-colors-monokai"]
 	path = guake-colors-monokai
 	url = git@github.com:erroneousboat/guake-colors-monokai.git
+[submodule "guake-colors-solarized"]
+	path = guake-colors-solarized
+	url = git@github.com:coolwanglu/guake-colors-solarized.git
