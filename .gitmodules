@@ -79,3 +79,6 @@
 [submodule "guake-colors-solarized"]
 	path = guake-colors-solarized
 	url = git@github.com:coolwanglu/guake-colors-solarized.git
+[submodule "gnome-terminal-colors-monokai"]
+	path = gnome-terminal-colors-monokai
+	url = https://github.com/pricco/gnome-terminal-colors-monokai.git
