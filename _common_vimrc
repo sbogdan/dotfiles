@@ -9,7 +9,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#begin('~/.vundle/')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " my Bundles
 Bundle 'tpope/vim-surround'
