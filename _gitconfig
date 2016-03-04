@@ -1,0 +1,11 @@
+[user]
+	name = saca
+	email = bogdan.sachelarie@gmail.com
+[push]
+	default = simple
+[alias]
+    co = checkout
+    st = status
+    pr = pull --rebase
+[core]
+	excludesfile = /home/saca/.gitignore_global
