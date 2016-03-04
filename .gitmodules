@@ -82,3 +82,6 @@
 [submodule "gnome-terminal-colors-monokai"]
 	path = gnome-terminal-colors-monokai
 	url = https://github.com/pricco/gnome-terminal-colors-monokai.git
+[submodule "honukai-iterm-zsh"]
+	path = honukai-iterm-zsh
+	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh
