@@ -14,7 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 " my Bundles
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'vheon/JediHTTP'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'

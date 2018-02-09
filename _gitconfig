@@ -1,11 +1,11 @@
 [user]
-	name = Bogdan Sachelarie
-	email = bogdan.sachelarie@gmail.com
+  name = Bogdan Sachelarie
+  email = bogdan.sachelarie@busymachines.com
 [push]
-	default = simple
+  default = simple
 [alias]
-    co = checkout
-    st = status
-    pr = pull --rebase
+  co = checkout
+  st = status
+  pr = pull --rebase
 [core]
-	excludesfile = /home/saca/.gitignore_global
+  excludesfile = ~/.gitignore_global
