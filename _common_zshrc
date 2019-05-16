@@ -138,4 +138,8 @@ setopt COMPLETE_IN_WORD
 compinit
 # End of lines added by compinstall
 
-eval `gdircolors ~/.dircolors`
+if $(command -v gdircolors); then
+  eval `gdircolors ~/.dircolors`
+else
+  eval `dircolors ~/.dircolors`
+fi
