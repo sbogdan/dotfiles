@@ -8,4 +8,5 @@
   st = status
   pr = pull --rebase
 [core]
+  editor = vim
   excludesfile = ~/.gitignore_global
